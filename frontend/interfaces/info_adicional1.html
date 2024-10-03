@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Animal</title>
+    <link rel="stylesheet" href="../css/info_adicional1.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://kit.fontawesome.com/f231ffcfa5.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.js"></script>
+    <script src="/backend/detallesmascotas.js"></script>
+    <style>
+        .info-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 50px;
+        }
+        #map { 
+            height: 400px; 
+            width: 400px;
+            border-radius: 10px;
+        }
+        .map-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="orange-box">
+            <i class="fas fa-paw"></i>
+        </div>
+        <div class="header-text">
+            <h1>Mascotas perdidas en acción</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/frontend/interfaces/inicio.html">Inicio</a></li>
+                <li><a href="#" onclick="window.location.href='perdi_mi_mascota.html'; return false;">Perdí a mi mascota</a></li>
+                <li><a href="#" onclick="window.location.href='mascotas_desaparecidas.html'; return false;">Mascotas desaparecidas</a></li>
+                <li><a href="#" onclick="window.location.href='mismascotas.html'; return false;">Mis Mascotas</a></li>
+                <li><a href="#" onclick="window.location.href='refugios.html'; return false;">Refugios</a></li>
+                <li>
+                    <a href="/frontend/interfaces/inicio_sesion.html">
+                        <button class="sesion-usuario" type="button">
+                            <i class="fas fa-user"></i> <span id="user-email">Cerrar Sesion</span>
+                        </button>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="header-eslogan">
+        <h2>Ayúdame a volver a casa</h2>
+    </div>
+    <div class="info-container">
+        <img id="animal-photo" src="../imagenes/default.jpg" alt="Imagen del animal">
+        <div class="info">
+            <p id="animal-name">Nombre del Animal</p>
+            <p id="animal-lostdate">Fecha de extravío</p>
+            <p id="animal-species">Especie</p>
+            <p id="animal-race">Raza</p>
+            <p id="animal-size">Tamaño</p>
+            <p id="animal-color">Color</p>
+            <p id="animal-temper">Temperamento</p>
+            <h4 id="animal-reward">Recompensa: $0.00</h4>
+            <p id="animal-owner">Dueño: Nombre del Dueño</p>
+        </div>
+        <!-- Contenedor para el mapa -->
+        <div class="map-container">
+            <h3>Área de extravío</h3>
+            <div id="map"></div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/leaflet"></script>
+        
+    <br><br>
+</body>
+</html>

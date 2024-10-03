@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/inicio_sesion.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.js"></script>
+    <title>Inicio de sesion</title>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>¡Hola!</h1>
+        <form id="login-form">
+            <div class="correo">
+                <label for="correo">Correo</label>
+                <input type="email" id="email" name="correo" required>
+            </div>
+
+            <div class="contraseña">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="password" name="contrasena" required pattern=".{8,}">
+            </div>       
+            
+            <div class="opciones-contrasena">
+                <div class="olvide-contrasena">
+                    <a href="#">Olvidé mi contraseña</a>
+                </div>
+            </div>
+            <br>
+
+            <div class="botones">
+                <div class="inicio-sesion">
+                    <button type="submit">Iniciar sesión</button>
+                </div>
+                <div class="registrarse">
+                    <button type="button" onclick="window.location.href='registro_usuario.html';">Registrarse</button>
+                </div>
+            </div>
+            <br><br>
+            <hr>
+        </form>
+    </div>
+    
+    <div class="logo">
+        <img src="../imagenes/logo_negro.png" alt="Logo">
+    </div>
+
+    <script src="../../backend/login.js"></script>
+
+</body>
+</html>

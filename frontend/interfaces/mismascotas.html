@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Mascotas</title>
+    <link rel="stylesheet" href="../css/inicio.css">
+    <link rel="stylesheet" href="../css/mascotas_desaparecidas.css">
+    <script src="https://kit.fontawesome.com/f231ffcfa5.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.js"></script>
+    <style>
+        .animal-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 30px;
+            background-color: #f8f9fa;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+
+        .animal-card {
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            width: 300px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #fff;
+            margin: 20px;
+        }
+
+        .animal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .animal-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .animal-card h3 {
+            margin: 20px 0 10px;
+            font-size: 1.75em;
+            color: #333;
+        }
+
+        .animal-card p {
+            margin: 10px 0;
+            color: #666;
+            font-size: 1em;
+        }
+
+        .recompensa {
+            color: #28a745;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 1.2em;
+        }
+
+        .ver-mas-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            margin: 20px 0;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .encontrado-btn {
+            background-color: #13df61;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            margin: 20px 0;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .encontrado-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .ver-mas-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .buscador {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .campo-buscador {
+            width: 50%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="orange-box">
+            <i class="fas fa-paw"></i>
+        </div>
+        <div class="header-text">
+            <p style="margin-right: 15px; font-weight: bold; font-size: 18px;">Mascotas perdidas en acción</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/frontend/interfaces/inicio.html">Inicio</a></li>
+                <li><a href="#" onclick="window.location.href='perdi_mi_mascota.html'; return false;">Perdí a mi mascota</a></li>
+                <li><a href="#" onclick="window.location.href='mascotas_desaparecidas.html'; return false;">Mascotas desaparecidas</a></li>
+                <li><a href="#" onclick="window.location.href='mismascotas.html'; return false;">Mis Mascotas</a></li>
+                <li><a href="#" onclick="window.location.href='refugios.html'; return false;">Refugios</a></li>
+                <li>
+                    <a href="/frontend/interfaces/inicio_sesion.html">
+                        <button class="sesion-usuario" type="button">
+                            <i class="fas fa-user"></i> <span id="user-email">Cerrar Sesion</span>
+                        </button>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contenedor">
+        <br><br>
+        <div class="buscador">
+            <br>
+            <h2>Tus Mascotas</h2>
+            <input class="campo-buscador" type="text" id="filtro-nombre" placeholder="Buscar por nombre...">
+            <br><br>
+        </div>
+        
+        <div id="animal-container" class="animal-container"></div>
+        <script src="/backend/mismascotas.js"></script>
+    </div>
+</body>
+</html>
